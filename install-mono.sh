@@ -76,16 +76,19 @@ installMono() {
 
   echo "Installing nunit3-console for Mono "$VERSION
   installNunitConsole $MONO_FOLDER_NAME
+  
+  echo "Creating short symlink '${SHORT_VERSION}'"
+  sudo ln -s ${MONO_VERSIONS_PATH}/${MONO_FOLDER_NAME} ${MONO_VERSIONS_PATH}/${SHORT_VERSION}
+
+  echo "Move to backup folder"
+  sudo mv -v $MONO_VERSIONS_PATH/* $TMPMOUNT_FRAMEWORKS/mono/
 }
 
 pushd $TMPMOUNT
 
-echo "hi1"
-ls $MONO_VERSIONS_PATH
 
 installMono $MONO_VERSION
+sudo mv -v $TMPMOUNT_FRAMEWORKS/mono/* $MONO_VERSIONS_PATH/
 
-echo "hi2"
-ls $MONO_VERSIONS_PATH
 
 popd
