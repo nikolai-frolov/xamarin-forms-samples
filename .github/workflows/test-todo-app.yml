@@ -1,0 +1,14 @@
+name: Check image version
+on:
+  workflow_dispatch:
+
+jobs:
+  current-mono:
+    name: Mono 6.12.0.125
+    runs-on: macos-latest
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Mono version
+      run: mono --version
+    - name: Nuget restore
+      run: nuget restore ./xamarin-forms-samples/Todo/Todo.sln
