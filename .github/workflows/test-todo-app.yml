@@ -21,7 +21,7 @@ jobs:
     - name: Remove current Mono
       run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
     - name: Install new Mono
-      run: sudo ./install-mono.sh
+      run: bash ./install-mono.sh
     - name: Mono version
       run: mono --version
     - name: Nuget restore
