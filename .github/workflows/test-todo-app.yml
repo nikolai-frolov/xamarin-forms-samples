@@ -1,4 +1,4 @@
-name: Check image version
+name: Validate Mono versions
 on:
   workflow_dispatch:
 
@@ -11,4 +11,4 @@ jobs:
     - name: Mono version
       run: mono --version
     - name: Nuget restore
-      run: nuget restore ./xamarin-forms-samples/Todo/Todo.sln
+      run: nuget restore ./Todo/Todo.sln
