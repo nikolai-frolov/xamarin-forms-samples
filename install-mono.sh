@@ -1,4 +1,4 @@
-MONO_VERSION="6.12.0.140"
+MONO_VERSION="6.12.0.147"
 MONO_VERSIONS_PATH='/Library/Frameworks/Mono.framework/Versions'
 TMPMOUNT=`/usr/bin/mktemp -d /tmp/visualstudio.XXXX`
 TMPMOUNT_FRAMEWORKS="$TMPMOUNT/frameworks"
