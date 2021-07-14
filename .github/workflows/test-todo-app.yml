@@ -13,9 +13,9 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
-  new-mono:
-    name: Mono 6.12.0.140
-    runs-on: macos-latest
+  new-mono-nuget:
+    name: Mono 6.12.0.147 Nuget restore
+    runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
     - name: Remove current Mono
@@ -26,3 +26,31 @@ jobs:
       run: mono --version
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
+
+  new-mono-dotnet:
+    name: Mono 6.12.0.147 dotnet restore
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
+    - name: Install new Mono
+      run: bash ./install-mono.sh
+    - name: Mono version
+      run: mono --version
+    - name: dotnet restore
+      run: dotnet restore ./Todo/Todo.sln
+
+  new-mono-msbuild:
+    name: Mono 6.12.0.147 msbuild restore
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
+    - name: Install new Mono
+      run: bash ./install-mono.sh
+    - name: Mono version
+      run: mono --version
+    - name: msbuild restore
+      run: msbuild -t:restore ./Todo/Todo.sln
