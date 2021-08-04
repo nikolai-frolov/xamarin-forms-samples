@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  mono-125-mono:
+  mono-125-mono-1:
     name: ToDo Mono 6.12.0.125 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -42,7 +42,7 @@ jobs:
   #   - name: msbuild restore
   #     run: msbuild -t:restore ./Todo/Todo.sln
 
-  mono-140-nuget:
+  mono-140-nuget-1:
     name: ToDo Mono 6.12.0.140 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -93,7 +93,7 @@ jobs:
   #   - name: msbuild restore
   #     run: msbuild -t:restore ./Todo/Todo.sln
 
-  mono-147-nuget:
+  mono-147-nuget-1:
     name: ToDo Mono 6.12.0.147 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -144,7 +144,7 @@ jobs:
   #   - name: msbuild restore
   #     run: msbuild -t:restore ./Todo/Todo.sln
 
-  mono-125-mono:
+  mono-125-mono-2:
     name: DependencyService Mono 6.12.0.125 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -157,7 +157,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./DependencyService/DependencyServiceDemos.sln
 
-  mono-140-nuget:
+  mono-140-nuget-2:
     name: DependencyService Mono 6.12.0.140 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -174,7 +174,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./DependencyService/DependencyServiceDemos.sln
 
-  mono-147-nuget:
+  mono-147-nuget-2:
     name: DependencyService Mono 6.12.0.147 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -191,7 +191,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./DependencyService/DependencyServiceDemos.sln
       
-  mono-125-mono:
+  mono-125-mono-3:
     name: Weather Mono 6.12.0.125 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -204,7 +204,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Weather/WeatherApp.sln
 
-  mono-140-nuget:
+  mono-140-nuget-3:
     name: Weather Mono 6.12.0.140 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -221,7 +221,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Weather/WeatherApp.sln
 
-  mono-147-nuget:
+  mono-147-nuget-3:
     name: Weather Mono 6.12.0.147 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -238,7 +238,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Weather/WeatherApp.sln
       
-  mono-125-mono:
+  mono-125-mono-4:
     name: CatClock Mono 6.12.0.125 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -251,7 +251,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./CatClock/CatClock.sln
 
-  mono-140-nuget:
+  mono-140-nuget-4:
     name: CatClock Mono 6.12.0.140 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -268,7 +268,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./CatClock/CatClock.sln
 
-  mono-147-nuget:
+  mono-147-nuget-4:
     name: CatClock Mono 6.12.0.147 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -285,7 +285,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./CatClock/CatClock.sln
       
-  mono-125-mono:
+  mono-125-mono-5:
     name: RpnCalculator Mono 6.12.0.125 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -298,7 +298,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./RpnCalculator/RpnCalculator.sln
 
-  mono-140-nuget:
+  mono-140-nuget-5:
     name: RpnCalculator Mono 6.12.0.140 Nuget restore
     runs-on: macos-10.15
     steps:    
@@ -315,7 +315,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./RpnCalculator/RpnCalculator.sln
 
-  mono-147-nuget:
+  mono-147-nuget-5:
     name: RpnCalculator Mono 6.12.0.147 Nuget restore
     runs-on: macos-10.15
     steps:    
