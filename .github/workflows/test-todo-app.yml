@@ -13,8 +13,13 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-    - name: Get content of the NuGet.targets
-      run: cat /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/msbuild/Current/bin/NuGet.targets
+    - name: Nuget version
+      run: nuget help
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.x'
+    - name: Nuget version
+      run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
@@ -58,8 +63,13 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-    - name: Get content of the NuGet.targets
-      run: cat /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/msbuild/Current/bin/NuGet.targets
+    - name: Nuget version
+      run: nuget help
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.x'
+    - name: Nuget version
+      run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
@@ -111,8 +121,13 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-    - name: Get content of the NuGet.targets
-      run: cat /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/msbuild/Current/bin/NuGet.targets
+    - name: Nuget version
+      run: nuget help
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.x'
+    - name: Nuget version
+      run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
