@@ -4,7 +4,7 @@ on:
 
 jobs:
   mono-125-mono-1:
-    name: ToDo Mono 6.12.0.125 Nuget restore
+    name: Mono 6.12.0.125
     runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
       run: nuget restore ./Todo/Todo.sln
 
   mono-140-nuget-1:
-    name: ToDo Mono 6.12.0.140 Nuget restore
+    name: Mono 6.12.0.140 update Nuget version
     runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
       run: nuget restore ./Todo/Todo.sln
 
   mono-140-nuget-2:
-    name: ToDo Mono 6.12.0.140 Nuget restore 2
+    name: Mono 6.12.0.140
     runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
@@ -61,7 +61,7 @@ jobs:
       run: nuget restore ./Todo/Todo.sln
 
   mono-147-nuget-1:
-    name: ToDo Mono 6.12.0.147 Nuget restore
+    name: Mono 6.12.0.147 update Nuget version
     runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
@@ -84,7 +84,7 @@ jobs:
       run: nuget restore ./Todo/Todo.sln
 
   mono-147-nuget-2:
-    name: ToDo Mono 6.12.0.147 Nuget restore 2
+    name: Mono 6.12.0.147
     runs-on: macos-10.15
     steps:    
     - uses: actions/checkout@v2
