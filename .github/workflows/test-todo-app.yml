@@ -15,39 +15,8 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    #- uses: nuget/setup-nuget@v1
-     # with:
-      #  nuget-version: '5.x'
-    - name: Nuget version
-      run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
-
-  # mono-125-dotnet:
-  #   name: Mono 6.12.0.125 dotnet restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: dotnet restore
-  #     run: dotnet restore ./Todo/Todo.sln
-
-  # mono-125-msbuild:
-  #   name: Mono 6.12.0.125 msbuild restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: msbuild restore
-  #     run: msbuild -t:restore ./Todo/Todo.sln
 
   mono-140-nuget-1:
     name: ToDo Mono 6.12.0.140 Nuget restore
@@ -65,47 +34,31 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    #- uses: nuget/setup-nuget@v1
-     # with:
-      #  nuget-version: '5.9.0'
+    - name: Update Nuget version
+      run: bash ./update-nuget.sh
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
-  # mono-140-dotnet:
-  #   name: Mono 6.12.0.140 dotnet restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: dotnet restore
-  #     run: dotnet restore ./Todo/Todo.sln
-
-  # mono-140-msbuild:
-  #   name: Mono 6.12.0.140 msbuild restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: msbuild restore
-  #     run: msbuild -t:restore ./Todo/Todo.sln
+  mono-140-nuget-2:
+    name: ToDo Mono 6.12.0.140 Nuget restore 2
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
+    - name: Install new Mono
+      run: bash ./install-mono-140.sh
+    - name: Mono version
+      run: mono --version
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+    - name: Nuget version
+      run: nuget help
+    - name: Nuget restore
+      run: nuget restore ./Todo/Todo.sln
 
   mono-147-nuget-1:
     name: ToDo Mono 6.12.0.147 Nuget restore
@@ -123,467 +76,28 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    #- uses: nuget/setup-nuget@v1
-     # with:
-      #  nuget-version: '5.9.0'
+    - name: Update Nuget version
+      run: bash ./update-nuget.sh
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
-  # mono-147-dotnet:
-  #   name: Mono 6.12.0.147 dotnet restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: dotnet restore
-  #     run: dotnet restore ./Todo/Todo.sln
-
-  # mono-147-msbuild:
-  #   name: Mono 6.12.0.147 msbuild restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: msbuild restore
-  #     run: msbuild -t:restore ./Todo/Todo.sln
-
-  # mono-125-mono-2:
-  #   name: DependencyService Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./DependencyService/DependencyServiceDemos.sln
-
-  # mono-140-nuget-2:
-  #   name: DependencyService Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./DependencyService/DependencyServiceDemos.sln
-
-  # mono-147-nuget-2:
-  #   name: DependencyService Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./DependencyService/DependencyServiceDemos.sln
-      
-  # mono-125-mono-3:
-  #   name: Weather Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Weather/WeatherApp.sln
-
-  # mono-140-nuget-3:
-  #   name: Weather Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Weather/WeatherApp.sln
-
-  # mono-147-nuget-3:
-  #   name: Weather Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Weather/WeatherApp.sln
-      
-  # mono-125-mono-4:
-  #   name: CatClock Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./CatClock/CatClock.sln
-
-  # mono-140-nuget-4:
-  #   name: CatClock Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./CatClock/CatClock.sln
-
-  # mono-147-nuget-4:
-  #   name: CatClock Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./CatClock/CatClock.sln
-      
-  # mono-125-mono-5:
-  #   name: RpnCalculator Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./RpnCalculator/RpnCalculator.sln
-
-  # mono-140-nuget-5:
-  #   name: RpnCalculator Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./RpnCalculator/RpnCalculator.sln
-
-  # mono-147-nuget-5:
-  #   name: RpnCalculator Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./RpnCalculator/RpnCalculator.sln
-
-  # mono-125-mono-6:
-  #   name: BasicBoxView Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/BasicBoxView/BasicBoxView.sln
-
-  # mono-140-nuget-6:
-  #   name: BasicBoxView Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/BasicBoxView/BasicBoxView.sln
-
-  # mono-147-nuget-6:
-  #   name: BasicBoxView Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/BasicBoxView/BasicBoxView.sln
-
-  # mono-125-mono-7:
-  #   name: GameOfLife Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/GameOfLife/GameOfLife.sln
-
-  # mono-140-nuget-7:
-  #   name: GameOfLife Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/GameOfLife/GameOfLife.sln
-
-  # mono-147-nuget-7:
-  #   name: GameOfLife Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./BoxView/GameOfLife/GameOfLife.sln
-
-  # mono-125-mono-8:
-  #   name: TouchTrackingEffect Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Effects/TouchTrackingEffect/TouchTrackingEffectDemos.sln
-
-  # mono-140-nuget-8:
-  #   name: TouchTrackingEffect Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Effects/TouchTrackingEffect/TouchTrackingEffectDemos.sln
-
-  # mono-147-nuget-8:
-  #   name: TouchTrackingEffect Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./Effects/TouchTrackingEffect/TouchTrackingEffectDemos.sln
-
-  # mono-125-mono-9:
-  #   name: AwesomeApp Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./GetStarted/FirstApp/AwesomeApp.sln
-
-  # mono-140-nuget-9:
-  #   name: AwesomeApp Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./GetStarted/FirstApp/AwesomeApp.sln
-
-  # mono-147-nuget-9:
-  #   name: AwesomeApp Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./GetStarted/FirstApp/AwesomeApp.sln
-
-  # mono-125-mono-10:
-  #   name: WorkingWithMaps Mono 6.12.0.125 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./WorkingWithMaps/WorkingWithMaps.sln
-
-  # mono-140-nuget-10:
-  #   name: WorkingWithMaps Mono 6.12.0.140 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-140.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./WorkingWithMaps/WorkingWithMaps.sln
-
-  # mono-147-nuget-10:
-  #   name: WorkingWithMaps Mono 6.12.0.147 Nuget restore
-  #   runs-on: macos-10.15
-  #   steps:    
-  #   - uses: actions/checkout@v2
-  #   - name: Remove current Mono
-  #     run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-  #   - name: Install new Mono
-  #     run: bash ./install-mono-147.sh
-  #   - name: Mono version
-  #     run: mono --version
-  #   - uses: actions/setup-dotnet@v1
-  #     with:
-  #       dotnet-version: '5.0.x'
-  #   - name: Nuget restore
-  #     run: nuget restore ./WorkingWithMaps/WorkingWithMaps.sln
+  mono-147-nuget-2:
+    name: ToDo Mono 6.12.0.147 Nuget restore 2
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
+    - name: Install new Mono
+      run: bash ./install-mono-147.sh
+    - name: Mono version
+      run: mono --version
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+    - name: Nuget version
+      run: nuget help
+    - name: Nuget restore
+      run: nuget restore ./Todo/Todo.sln
