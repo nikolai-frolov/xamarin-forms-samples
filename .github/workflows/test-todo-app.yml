@@ -15,9 +15,9 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    - uses: nuget/setup-nuget@v1
-      with:
-        nuget-version: '5.x'
+    #- uses: nuget/setup-nuget@v1
+     # with:
+      #  nuget-version: '5.x'
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
@@ -65,9 +65,9 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    - uses: nuget/setup-nuget@v1
-      with:
-        nuget-version: '5.9.0'
+    #- uses: nuget/setup-nuget@v1
+     # with:
+      #  nuget-version: '5.9.0'
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
@@ -123,9 +123,9 @@ jobs:
         dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
-    - uses: nuget/setup-nuget@v1
-      with:
-        nuget-version: '5.9.0'
+    #- uses: nuget/setup-nuget@v1
+     # with:
+      #  nuget-version: '5.9.0'
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
