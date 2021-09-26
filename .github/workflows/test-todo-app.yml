@@ -10,9 +10,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Mono version
       run: mono --version
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
@@ -29,9 +26,6 @@ jobs:
       run: bash ./install-mono-140.sh
     - name: Mono version
       run: mono --version
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
     - name: Nuget version
       run: nuget help
     - name: Nuget restore
