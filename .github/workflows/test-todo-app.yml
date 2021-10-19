@@ -16,6 +16,25 @@ jobs:
       run: nuget restore ./Todo/Todo.sln
 
   mono-140-nuget:
+    name: Mono 6.12.0.140 (nuget)
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: |
+        sudo rm -rf /Library/Frameworks/Mono.framework
+        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
+        sudo rm /etc/paths.d/mono-commands
+    - name: Install new Mono
+      run: bash ./install-mono-140.sh
+    - name: Mono version
+      run: mono --version
+    - name: Nuget version
+      run: nuget help
+    - name: Nuget restore
+      run: nuget restore ./Todo/Todo.sln
+
+  mono-147-nuget:
     name: Mono 6.12.0.147 (nuget)
     runs-on: macos-10.15
     steps:    
@@ -34,7 +53,7 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
-  mono-140-msbuild:
+  mono-147-msbuild:
     name: Mono 6.12.0.147 (msbuild)
     runs-on: macos-10.15
     steps:    
