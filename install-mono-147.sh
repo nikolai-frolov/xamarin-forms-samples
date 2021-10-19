@@ -62,7 +62,8 @@ EOF
 }
 
 buildMonoDownloadUrl() {
-  echo "https://xamarin-storage.azureedge.net/dynamic/internal-preview-main/964ebddd-1ffe-47e7-8128-5ce17ffffb05/MonoFramework-MDK-6.12.0.147.macos10.xamarin.universal.pkg"
+  echo "https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-${1}.macos10.xamarin.universal.pkg"
+#  echo "https://dl.xamarin.com/MonoFrameworkMDK/Macx86/MonoFramework-MDK-${1}.macos10.xamarin.universal.pkg"
 }
 
 installMono() {

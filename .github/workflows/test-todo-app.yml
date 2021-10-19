@@ -27,7 +27,29 @@ jobs:
 #        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
 #        sudo rm /etc/paths.d/mono-commands
     - name: Install new Mono
-      run: bash ./install-mono-140.sh
+      run: |
+        bash ./install-mono-140.sh
+    - name: Mono version
+      run: mono --version
+    - name: Nuget version
+      run: nuget help
+    - name: Nuget restore
+      run: nuget restore ./Todo/Todo.sln
+
+  mono-140-nuget-manual:
+    name: Mono 6.12.0.140 manual install (nuget)
+    runs-on: macos-10.15
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Remove current Mono
+      run: |
+        sudo rm -rf /Library/Frameworks/Mono.framework
+        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
+        sudo rm /etc/paths.d/mono-commands
+    - name: Install new Mono
+      run: |
+        curl https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.140.macos10.xamarin.universal.pkg
+        sudo installer -pkg ./MonoFramework-MDK-6.12.0.140.macos10.xamarin.universal.pkg -target /
     - name: Mono version
       run: mono --version
     - name: Nuget version
