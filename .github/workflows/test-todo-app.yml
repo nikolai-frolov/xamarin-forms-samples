@@ -15,20 +15,27 @@ jobs:
     - name: Nuget restore
       run: nuget restore ./Todo/Todo.sln
 
+  mono-current-msbuild:
+    name: Mono current (msbuild)
+    runs-on: macos-latest
+    steps:    
+    - uses: actions/checkout@v2
+    - name: Mono version
+      run: mono --version
+    - name: Nuget version
+      run: nuget help
+    - name: MSbuild restore
+      run: msbuild /t:restore ./Todo/Todo.sln
+
   mono-140-nuget:
     name: Mono 6.12.0.140 (nuget)
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:    
     - uses: actions/checkout@v2
     - name: Remove current Mono
-      run: |
-        sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-#        sudo rm -rf /Library/Frameworks/Mono.framework
-#        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
-#        sudo rm /etc/paths.d/mono-commands
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
     - name: Install new Mono
-      run: |
-        bash ./install-mono-140.sh
+      run: bash ./install-mono-140.sh
     - name: Mono version
       run: mono --version
     - name: Nuget version
@@ -38,15 +45,11 @@ jobs:
 
   mono-147-nuget:
     name: Mono 6.12.0.147 (nuget)
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:    
     - uses: actions/checkout@v2
     - name: Remove current Mono
-      run: |
-        sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-#        sudo rm -rf /Library/Frameworks/Mono.framework
-#        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
-#        sudo rm /etc/paths.d/mono-commands
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
     - name: Install new Mono
       run: bash ./install-mono-147.sh
     - name: Mono version
@@ -58,15 +61,11 @@ jobs:
 
   mono-147-msbuild:
     name: Mono 6.12.0.147 (msbuild)
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:    
     - uses: actions/checkout@v2
     - name: Remove current Mono
-      run: |
-        sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
-#        sudo rm -rf /Library/Frameworks/Mono.framework
-#        sudo pkgutil --forget com.xamarin.mono-MDK.pkg
-#        sudo rm /etc/paths.d/mono-commands
+      run: sudo rm -rf /Library/Frameworks/Mono.framework/Versions/6.12.0
     - name: Install new Mono
       run: bash ./install-mono-147.sh
     - name: Mono version
